@@ -1,0 +1,21 @@
+<div class="example-menu" cdkMenu>
+    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Dr. Gottberg</button>
+    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Das Team</button>
+    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Schwerpunkte</button>
+    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Anfahrt</button>
+    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Urlaubszeiten</button>
+    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Im Notfall</button>
+    <button mat-button [matMenuTriggerFor]="belowMenu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+      Links und Adressen
+    </button>
+      <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Reisemedizin</button>
+        <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Entzugskliniken</button>
+        <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Suchtberatung</button>
+        <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Hepatitis</button>
+      </mat-menu>
+
+    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Haftung und Datenschutz</button>
+
+  </div>
