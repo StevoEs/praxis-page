@@ -4,22 +4,26 @@ import { CommonModule } from '@angular/common';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { distinctUntilChanged, tap } from 'rxjs/operators';
 import { SidenavComponent } from '../sidenav/sidenav.component';
-import { MatCardModule } from '@angular/material/card';
+import { HeaderComponent } from '../header/header.component';
+
+
 
 @Component({
   selector: 'go-home',
   standalone: true,
-  imports: [SidenavComponent, MatCardModule, CommonModule ],
+  imports: [SidenavComponent, CommonModule, HeaderComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
 
+ 
+
   Breakpoints = Breakpoints;
   currentBreakpoint:string = '';
 
   readonly breakpoint$ = this.breakpointObserver
-  .observe([Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, '(min-width: 500px)'])
+  .observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
   .pipe(
     tap(value => console.log(value)),
     distinctUntilChanged()
@@ -29,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpoint$.subscribe(() =>
-      this.breakpointChanged()
+      this.breakpointChanged() 
     );
   }
   private breakpointChanged() {
@@ -45,5 +49,7 @@ export class HomeComponent implements OnInit {
       this.currentBreakpoint = Breakpoints.XSmall;
     }
   }
+
+
 
 }

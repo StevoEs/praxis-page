@@ -1,21 +1,69 @@
-<div class="example-menu" cdkMenu>
-    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Dr. Gottberg</button>
-    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Das Team</button>
-    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Schwerpunkte</button>
-    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Anfahrt</button>
-    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Urlaubszeiten</button>
-    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Im Notfall</button>
-    <button mat-button [matMenuTriggerFor]="belowMenu" aria-label="Example icon-button with a menu">
-      <mat-icon>more_vert</mat-icon>
-      Links und Adressen
-    </button>
-      <mat-menu #belowMenu="matMenu" yPosition="below">
-        <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Reisemedizin</button>
-        <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Entzugskliniken</button>
-        <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Suchtberatung</button>
-        <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Hepatitis</button>
-      </mat-menu>
+<mat-drawer-container class="container">
+  <mat-drawer mode="side" opened>
+    <img class="sidenav-image" ngSrc="../../assets/praxisklein.jpg" width="150" height="226" priority>
+    <div class="menu" cdkMenu>
+      <button class="menu-item" cdkMenuItem [routerLink]="['']">Dr. Gottberg</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['']">Das Team</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['']">Schwerpunkte</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['']">Anfahrt</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['']">Urlaubszeiten</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['']">Im Notfall</button>
+      <button mat-button [matMenuTriggerFor]="belowMenu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+        Links und Adressen
+      </button>
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+          <button class="menu-item" cdkMenuItem [routerLink]="['']">Reisemedizin</button>
+          <button class="menu-item" cdkMenuItem [routerLink]="['']">Entzugskliniken</button>
+          <button class="menu-item" cdkMenuItem [routerLink]="['']">Suchtberatung</button>
+          <button class="menu-item" cdkMenuItem [routerLink]="['']">Hepatitis</button>
+        </mat-menu>
 
-    <button class="example-menu-item" cdkMenuItem [routerLink]="['']">Haftung und Datenschutz</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['']">Haftung und Datenschutz</button>
 
-  </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <h1>Praxis Dr. Gottberg</h1>
+    <p class="description">Homepage der Praxis von Dr. med. Joachim Gottberg, Hamburg</p>
+
+    <p>
+      Arzt für Allgemeinmedizin<br />
+      Feldstraße 44<br />
+      20357 Hamburg<br />
+      Tel.: 040 723 400 70<br />
+      Fax: 040 533 039 96<br />
+      Mobil: 0176-57065441<br />
+      E-Mail: <a href="mailto:drgottberg@gmx.de">drgottberg&#64;gmx.de</a></p>
+
+      <h2>Sprechzeiten</h2>
+          <!-- day Column -->
+      <table mat-table [dataSource]="dataSource">
+<!--class="mat-elevation-z8"-->
+        <ng-container matColumnDef="day">
+          <th mat-header-cell *matHeaderCellDef> Dienstag </th>
+          <td mat-cell *matCellDef="let element"> {{element.montag}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dienstag">
+          <th mat-header-cell *matHeaderCellDef> Dienstag </th>
+          <td mat-cell *matCellDef="let element">1 {{element.dienstag}} </td>
+        </ng-container>
+
+          <!-- time Column -->
+        <ng-container matColumnDef="sonntag">
+          <th mat-header-cell *matHeaderCellDef> Sonntag </th>
+          <td mat-cell *matCellDef="let element"> {{element.sonntag}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef> Mittwoch </th>
+          <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+  </mat-drawer-content>
+</mat-drawer-container>
