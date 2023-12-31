@@ -5,13 +5,14 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { distinctUntilChanged, tap } from 'rxjs/operators';
 import { SidenavComponent } from '../sidenav/sidenav.component';
 import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 
 
 @Component({
   selector: 'go-home',
   standalone: true,
-  imports: [SidenavComponent, CommonModule, HeaderComponent ],
+  imports: [SidenavComponent, CommonModule, HeaderComponent,FooterComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

@@ -1,0 +1,146 @@
+<!-- forward-calculation.component.html -->
+<div class="container-fluid">
+  <div class="jumbotron col-sm-6 p-2 m-0 bg-inverse">
+    <h1 class="text-center">Angular Vorwärtskalkulation</h1>
+    <!-- Zeigt die Eingabewerte für die Kalkulation an, die vom Benutzer geändert werden können -->
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="listPrice">Listenverkaufspreis</label>
+        <input
+          id="listPrice"
+          type="number"
+          class="form-control"
+          [(ngModel)]="listPrice"
+          (ngModelChange)="calculate()"
+        />
+      </div>
+      <div class="col-sm-6">
+        <label for="deliveryDiscount">Lieferabatt (%)</label>
+        <input
+          id="deliveryDiscount"
+          type="number"
+          class="form-control"
+          [(ngModel)]="deliveryDiscount"
+          (ngModelChange)="calculate()"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="deliveryCashDiscount">Lieferskonto (%)</label>
+        <input
+          id="deliveryCashDiscount"
+          type="number"
+          class="form-control"
+          [(ngModel)]="deliveryCashDiscount"
+          (ngModelChange)="calculate()"
+        />
+      </div>
+      <div class="col-sm-6">
+        <label for="incidentalCosts">Bezugskosten</label>
+        <input
+          id="incidentalCosts"
+          type="number"
+          class="form-control"
+          [(ngModel)]="incidentalCosts"
+          (ngModelChange)="calculate()"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="handlingCosts">Handlungskosten (%)</label>
+        <input
+          id="handlingCosts"
+          type="number"
+          class="form-control"
+          [(ngModel)]="handlingCosts"
+          (ngModelChange)="calculate()"
+        />
+      </div>
+      <div class="col-sm-6">
+        <label for="profit">Gewinn (%)</label>
+        <input
+          id="profit"
+          type="number"
+          class="form-control"
+          [(ngModel)]="profit"
+          (ngModelChange)="calculate()"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="customerCashDiscount">Kundenkonto (%)</label>
+        <input
+          id="customerCashDiscount"
+          type="number"
+          class="form-control"
+          [(ngModel)]="customerCashDiscount"
+          (ngModelChange)="calculate()"
+        />
+      </div>
+      <div class="col-sm-6">
+        <label for="agentCommission">Vertreterprovision (%)</label>
+        <input
+          id="agentCommission"
+          type="number"
+          class="form-control"
+          [(ngModel)]="agentCommission"
+          (ngModelChange)="calculate()"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="customerDiscount">Kundenrabatt (%)</label>
+        <input
+          id="customerDiscount"
+          type="number"
+          class="form-control"
+          [(ngModel)]="customerDiscount"
+          (ngModelChange)="calculate()"
+        />
+      </div>
+    </div>
+    <!-- Zeigt die berechneten Werte für die Kalkulation an, die nicht vom Benutzer geändert werden können -->
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="targetPurchasePrice">Zieleinkaufspreis</label>
+        <input
+          id="targetPurchasePrice"
+          type="number"
+          class="form-control"
+          [(ngModel)]="targetPurchasePrice"
+          readonly
+        />
+      </div>
+      <div class="col-sm-6">
+        <label for="cashPurchasePrice">Bareinkaufspreis</label>
+        <input
+          id="cashPurchasePrice"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cashPurchasePrice"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="referencePrice">Bezugspreis</label>
+        <input
+          id="referencePrice"
+          type="number"
+          class="form-control"
+          [(ngModel)]="referencePrice"
+          readonly
+        />
+      </div>
+      <div class="col-sm-6">
+        <label for="costPrice">Selbstkosten</label>
+       <input
+          id="costPrice"
+          type="number"
+          class="form-control"
+          [(ngModel)]="costPrice" />

@@ -8,37 +8,44 @@ import {MatButtonModule} from '@angular/material/button';
 import { NgOptimizedImage } from '@angular/common'
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 
 export interface PeriodicElement {
-  day: string;
-  time: string;
+  montag?: string;
+  dienstag?: string;
+  mittwoch?: string;
+  donnerstag?: string;
+  freitag?: string;
+  samstag?: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {day: "Montag", time: "07:30 - 12:00"},
-  {day: "Dienstag", time: "07:30 - 12:00"},
-  {day: "Mittwoch", time: "07:30 - 12:00"},
-  {day: "Donnerstag", time: "07:30 - 12:00"},
-  {day: "Freitag", time: "Geschlossen"},
-  {day: "Samstag", time: "07:30 - 10:45"},
-  {day: "Sonntag", time: "Geschlossen"},
+  {montag: '07.30 - 12.00', dienstag: '07.30 - 12.00', mittwoch: '07.30 - 12.00', donnerstag: '07.30 - 12.00', freitag: 'Geschlossen', samstag: '07.30 - 10.45'},
+
 ];
 
 
 @Component({
   selector: 'go-sidenav',
   standalone: true,
-  imports: [MatSidenavModule,
-     CdkMenu, CdkMenuItem,
-      RouterModule, MatMenuModule,
-       MatButtonModule, NgOptimizedImage,
-        MatTableModule, MatIconModule],
+  imports: [
+    MatSidenavModule,
+    CdkMenu, 
+    CdkMenuItem,
+    RouterModule, 
+    MatMenuModule,
+    MatButtonModule, 
+    NgOptimizedImage,
+    MatTableModule, 
+    MatIconModule,
+    MatListModule,
+  ],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss'
 })
 
 
 export class SidenavComponent {
-  displayedColumns: string[] = ['day', 'day', 'day', 'day', 'day', 'day'];
+  displayedColumns: string[] = ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag'];
   dataSource = ELEMENT_DATA;
 }
