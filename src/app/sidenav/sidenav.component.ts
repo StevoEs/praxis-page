@@ -6,24 +6,8 @@ import {CdkMenu, CdkMenuItem} from '@angular/cdk/menu';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { NgOptimizedImage } from '@angular/common'
-import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
-
-export interface PeriodicElement {
-  montag?: string;
-  dienstag?: string;
-  mittwoch?: string;
-  donnerstag?: string;
-  freitag?: string;
-  samstag?: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {montag: '07.30 - 12.00', dienstag: '07.30 - 12.00', mittwoch: '07.30 - 12.00', donnerstag: '07.30 - 12.00', freitag: 'Geschlossen', samstag: '07.30 - 10.45'},
-
-];
-
+import { ContentComponent } from '../content/startseite/content.component'
 
 @Component({
   selector: 'go-sidenav',
@@ -36,9 +20,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatMenuModule,
     MatButtonModule, 
     NgOptimizedImage,
-    MatTableModule, 
     MatIconModule,
-    MatListModule,
+    ContentComponent,
   ],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss'
@@ -46,6 +29,5 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 
 export class SidenavComponent {
-  displayedColumns: string[] = ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag'];
-  dataSource = ELEMENT_DATA;
+
 }
