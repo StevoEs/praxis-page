@@ -2,7 +2,7 @@
   <mat-drawer mode="side" opened>
     <img class="sidenav-image" ngSrc="../../assets/praxisklein.jpg" width="150" height="226" alt="Praxiseingang" priority>
     <div class="menu" cdkMenu>
-      <button class="menu-item" cdkMenuItem [routerLink]="['']">Dr. Gottberg</button>
+      <button class="menu-item" cdkMenuItem routerLink="../content/sites/gottberg/gottberg.component.html">Dr. Gottberg</button>
       <button class="menu-item" cdkMenuItem [routerLink]="['']">Das Team</button>
       <button class="menu-item" cdkMenuItem [routerLink]="['']">Schwerpunkte</button>
       <button class="menu-item" cdkMenuItem [routerLink]="['']">Anfahrt</button>
@@ -26,7 +26,7 @@
 
   <mat-drawer-content>
 <!--------------Content.component.html------------------>
-    <go-content></go-content>
+<router-outlet></router-outlet>
 
   </mat-drawer-content>
 
