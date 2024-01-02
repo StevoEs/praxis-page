@@ -7,7 +7,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { NgOptimizedImage } from '@angular/common'
 import {MatIconModule} from '@angular/material/icon';
-import { ContentComponent } from '../content/startseite/content.component'
+import { ContentComponent } from '../content/sites/startseite/content.component';
+import { GottbergComponent } from '../content/sites/gottberg/gottberg.component';
 
 @Component({
   selector: 'go-sidenav',
@@ -22,6 +23,7 @@ import { ContentComponent } from '../content/startseite/content.component'
     NgOptimizedImage,
     MatIconModule,
     ContentComponent,
+    GottbergComponent,
   ],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss'

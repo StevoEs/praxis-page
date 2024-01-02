@@ -2,24 +2,25 @@
   <mat-drawer mode="side" opened>
     <img class="sidenav-image" ngSrc="../../assets/praxisklein.jpg" width="150" height="226" alt="Praxiseingang" priority>
     <div class="menu" cdkMenu>
-      <button class="menu-item" cdkMenuItem routerLink="../content/sites/gottberg/gottberg.component.html">Dr. Gottberg</button>
-      <button class="menu-item" cdkMenuItem [routerLink]="['']">Das Team</button>
-      <button class="menu-item" cdkMenuItem [routerLink]="['']">Schwerpunkte</button>
-      <button class="menu-item" cdkMenuItem [routerLink]="['']">Anfahrt</button>
-      <button class="menu-item" cdkMenuItem [routerLink]="['']">Urlaubszeiten</button>
-      <button class="menu-item" cdkMenuItem [routerLink]="['']">Im Notfall</button>
+      <button class="menu-item" cdkMenuItem routerLink="">Startseite</button>
+      <button class="menu-item" cdkMenuItem routerLink="/gottberg">Dr. Gottberg</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['/team']">Das Team</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['/schwerpunkte']">Schwerpunkte</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['/anfahrt']">Anfahrt</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['/urlaubszeit']">Urlaubszeiten</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['/notfall']">Im Notfall</button>
       <button mat-button [matMenuTriggerFor]="belowMenu" aria-label="Example icon-button with a menu">
         <mat-icon>more_vert</mat-icon>
         Links und Adressen
       </button>
         <mat-menu #belowMenu="matMenu" yPosition="below">
-          <button class="menu-item" cdkMenuItem [routerLink]="['']">Reisemedizin</button>
-          <button class="menu-item" cdkMenuItem [routerLink]="['']">Entzugskliniken</button>
-          <button class="menu-item" cdkMenuItem [routerLink]="['']">Suchtberatung</button>
-          <button class="menu-item" cdkMenuItem [routerLink]="['']">Hepatitis</button>
+          <button class="menu-item" cdkMenuItem [routerLink]="['/reisemedizin']">Reisemedizin</button>
+          <button class="menu-item" cdkMenuItem [routerLink]="['/entzug']">Entzugskliniken</button>
+          <button class="menu-item" cdkMenuItem [routerLink]="['/sucht']">Suchtberatung</button>
+          <button class="menu-item" cdkMenuItem [routerLink]="['/hepatitis']">Hepatitis</button>
         </mat-menu>
 
-      <button class="menu-item" cdkMenuItem [routerLink]="['']">Haftung und Datenschutz</button>
+      <button class="menu-item" cdkMenuItem [routerLink]="['/datenschutz']">Haftung und Datenschutz</button>
 
     </div>
   </mat-drawer>
