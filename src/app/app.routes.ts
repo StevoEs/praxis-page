@@ -11,6 +11,7 @@ import { EntzugComponent } from "./content/sites/entzug/entzug.component";
 import { SuchtComponent } from "./content/sites/sucht/sucht.component";
 import { HepatitisComponent } from "./content/sites/hepatitis/hepatitis.component";
 import { DatenschutzComponent } from "./content/sites/datenschutz/datenschutz.component";
+import { ImpressumComponent } from "./content/sites/impressum/impressum.component";
 import { PageNotFoundComponent } from "./content/sites/page-not-found/page-not-found.component";
 
 
@@ -27,5 +28,6 @@ export const routes: Routes = [
     { path: 'sucht', component: SuchtComponent},
     { path: 'hepatitis', component: HepatitisComponent},
     { path: 'datenschutz', component: DatenschutzComponent},
+    { path: 'impressum', component: ImpressumComponent},
     { path: '**', component: PageNotFoundComponent },
 ];
