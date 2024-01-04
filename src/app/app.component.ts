@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { distinctUntilChanged, tap } from 'rxjs/operators';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatCardModule } from '@angular/material/card';
 
@@ -50,6 +50,7 @@ export class AppComponent implements OnInit {
       this.breakpointChanged() 
     );
   }
+
   private breakpointChanged() {
     if(this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
       this.currentBreakpoint = Breakpoints.XLarge;
@@ -63,4 +64,5 @@ export class AppComponent implements OnInit {
       this.currentBreakpoint = Breakpoints.XSmall;
     }
   }
+
 }
