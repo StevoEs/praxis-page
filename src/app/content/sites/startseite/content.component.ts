@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 
@@ -21,9 +21,15 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {montag: '07.30 - 12.00', dienstag: '07.30 - 12.00', mittwoch: '07.30 - 12.00', donnerstag: '07.30 - 12.00', freitag: 'Geschlossen', samstag: '07.30 - 10.45'},
+  {montag: '07.30 - 12.00',
+   dienstag: '07.30 - 12.00', 
+   mittwoch: '07.30 - 12.00', 
+   donnerstag: '07.30 - 12.00', 
+   freitag: 'Geschlossen', 
+   samstag: '07.30 - 10.45'},
 
 ];
+
 
 @Component({
   selector: 'go-content',
@@ -43,7 +49,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss'
 })
+
 export class ContentComponent {
   displayedColumns: string[] = ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag'];
   dataSource = ELEMENT_DATA;
+
 }
