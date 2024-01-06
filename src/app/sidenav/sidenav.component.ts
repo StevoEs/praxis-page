@@ -47,6 +47,15 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
     this.breakpoint$.subscribe(result => {
       this.breakpointChanged(result);
+      this.breakpointObserver.observe([
+        Breakpoints.XLarge,
+        Breakpoints.Large,
+        Breakpoints.Medium,
+        Breakpoints.Small,
+        Breakpoints.XSmall,
+      ]).subscribe(result => {
+        this.applyStyles(result);
+      });
     });
   }
 
@@ -71,6 +80,22 @@ export class SidenavComponent implements OnInit {
         }
       } else if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
         this.currentBreakpoint = Breakpoints.XSmall;
+      }
+    }
+  }
+
+  private applyStyles(result: any) {
+    if (result.matches) {
+      if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
+        // Ändere hier die CSS-Stile für extra large Bildschirmgröße
+      } else if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
+        // Ändere hier die CSS-Stile für large Bildschirmgröße
+      } else if (this.breakpointObserver.isMatched(Breakpoints.Medium)) {
+        // Ändere hier die CSS-Stile für medium Bildschirmgröße
+      } else if (this.breakpointObserver.isMatched(Breakpoints.Small)) {
+        // Ändere hier die CSS-Stile für small Bildschirmgröße
+      } else if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
+        // Ändere hier die CSS-Stile für extra small Bildschirmgröße
       }
     }
   }

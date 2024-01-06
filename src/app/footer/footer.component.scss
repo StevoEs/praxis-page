@@ -1,5 +1,12 @@
 .footer {
-    text-align: center;
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+
+  font-size: 1rem;
+  color: grey;
 }
 
 .menu {

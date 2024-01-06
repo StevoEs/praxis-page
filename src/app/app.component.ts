@@ -1,12 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { NgOptimizedImage } from '@angular/common';
+
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 import { HeaderComponent } from '../app/header/header.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { FooterComponent } from '../app/footer/footer.component';
 
 
@@ -17,8 +22,11 @@ import { FooterComponent } from '../app/footer/footer.component';
             RouterOutlet, 
             RouterLink,
             RouterLinkActive,
-            MatCardModule, 
-            SidenavComponent, 
+            MatSidenavModule, 
+            MatToolbarModule,
+            MatMenuModule,
+            MatIconModule,
+            NgOptimizedImage,
             MatProgressSpinnerModule,
             HeaderComponent, 
             FooterComponent ],
