@@ -1,2 +1,104 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
+.toolbar {
+    position: relative;
+    z-index: 2;
+    color: white;
+  }
 
+ #burger {
+  size: 1.5;
+ } 
+  
+
+.toolbar-heading {
+  margin-left: 6px;
+  font-size: 1.5rem;
+}
+
+.toolbar-heading.isMobile {
+  margin-left: 6px;
+  font-size: 1.1rem;
+}
+
+.drawer-container {
+  margin: 16px;
+  flex: 1;
+}
+ 
+.drawer-container.isMobile {
+  margin: 0px!important;
+  flex: 1;
+}
+  
+.content {  
+  margin: 16px;
+  margin-left: 16px;
+  padding-left: 8px;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 1rem;
+  color: grey;
+  
+  border-radius: 10px;
+}
+
+.content.isMobile {  
+  min-width: 648px;
+  margin: 0px!important;
+  padding-left: 8px;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 1rem;
+  color: grey;
+  
+  border-radius: 10px;
+}
+
+  
+  .menu-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1rem;
+      color: black;
+      font-size: 1rem;
+  
+      user-select: none;
+      min-width: 64px;
+      line-height: 36px;
+      padding: 0 16px;
+  
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      flex: 1;
+  
+      background-color: transparent;
+      cursor: pointer;
+      border: none;
+  }
+  
+  .menu-item:hover {
+    background-color: rgb(208, 208, 208);
+  }
+  
+  .menu-item:active {
+    background-color: rgb(170, 170, 170);
+  }
+
+.sidenav-image {
+  display: block;
+  margin: auto;
+}

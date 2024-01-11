@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 
 
+
 @Component({
   selector: 'go-header',
   standalone: true,
@@ -17,7 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
             RouterModule,
             CommonModule,
             MatButtonModule, 
-            MatIconModule, 
+            MatIconModule,
           ],
           templateUrl: './header.component.html',
           styleUrl: './header.component.scss'

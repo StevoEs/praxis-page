@@ -1,34 +1,71 @@
-<mat-drawer-container class="container">
-  <mat-drawer mode="side" opened>
-    
-      <!--<div  class="menu" cdkMenu>
-          <mat-menu #menu="matMenu">  -->
-              <button class="menu-item" cdkMenuItem routerLink="">Startseite</button>
-              <button class="menu-item" cdkMenuItem routerLink="/gottberg">Dr. Gottberg</button>
-              <button class="menu-item" cdkMenuItem [routerLink]="['/team']">Das Team</button>
-              <button class="menu-item" cdkMenuItem [routerLink]="['/schwerpunkte']">Schwerpunkte</button>
-              <button class="menu-item" cdkMenuItem [routerLink]="['/anfahrt']">Anfahrt</button>
-              <button class="menu-item" cdkMenuItem [routerLink]="['/urlaub']">Urlaubszeiten</button>
-              <button class="menu-item" cdkMenuItem [routerLink]="['/notfall']">Im Notfall</button>
+<div class="container">
+
+    <mat-toolbar class="toolbar" color="primary">
+        <div class="menu-button">
+            <button type="button" mat-button (click)="drawer.toggle()">
+                <mat-icon mat-icon id="burger">menu</mat-icon>
+            </button>
+        </div>
+        <div class="toolbar-heading">
+            <span>Dr. med. Joachim Gottberg</span>
+        </div> 
+    </mat-toolbar>
+
+<mat-drawer-container class="drawer-container" [ngClass]="{'isMobile': isMobile}">
+  <mat-drawer mode="side" #drawer>
+      <img class="sidenav-image mat-elevation-z8" ngSrc="../assets/praxisklein.jpg" width="150" height="226" alt="Praxiseingang" priority>
+      <button mat-button class="menu-button"  routerLink="">
+          <span>Startseite</span>
+      </button>
+      <button mat-button class="menu-button"  routerLink="/gottberg">
+          <span>Dr. Gottberg</span>
+      </button>
+      <button mat-button class="menu-button"  [routerLink]="['/team']">
+          <span>Das Team</span>
+      </button>
+      <button mat-button class="menu-button"  [routerLink]="['/schwerpunkte']">
+          <span>Schwerpunkte</span>
+      </button>
+      <button mat-button class="menu-button"  [routerLink]="['/anfahrt']">
+          <span>Anfahrt</span>
+      </button>
+      <button mat-button class="menu-button"  [routerLink]="['/urlaub']">
+          <span>Urlaubszeiten</span>
+      </button>
+      <button mat-button class="menu-button"  [routerLink]="['/notfall']">
+          <span>Im Notfall</span>
+      </button>
 
 
-              <button mat-button [matMenuTriggerFor]="belowMenu" aria-label="icon-button with a menu">
-                  <mat-icon>more_vert</mat-icon>
-                  Links und Adressen
-              </button>
-              <mat-menu #belowMenu="matMenu" yPosition="below">
-                  <button class="menu-item" cdkMenuItem [routerLink]="['/reisemedizin']">Reisemedizin</button>
-                  <button class="menu-item" cdkMenuItem [routerLink]="['/entzug']">Entzugskliniken</button>
-                  <button class="menu-item" cdkMenuItem [routerLink]="['/sucht']">Suchtberatung</button>
-                  <button class="menu-item" cdkMenuItem [routerLink]="['/hepatitis']">Hepatitis</button>
-              </mat-menu>
-              <button class="menu-item" cdkMenuItem [routerLink]="['/datenschutz']">Haftung und Datenschutz</button>
-     <!-- </mat-menu> 
-      </div>-->
-
-  
+      <button class="menu-button" mat-button [matMenuTriggerFor]="belowMenu" aria-label="icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+          <span>Links und Adressen</span>
+      </button>
+      <mat-menu class="mat-menu" #belowMenu="matMenu" yPosition="below">
+          <button mat-button class="menu-button"  [routerLink]="['/reisemedizin']">
+              <span>Reisemedizin</span>
+          </button>
+          <button mat-button class="menu-button"  [routerLink]="['/entzug']">
+              <span>Entzugskliniken</span>
+          </button>
+          <button mat-button class="menu-button"  [routerLink]="['/sucht']">
+              <span>Suchtberatung</span>
+          </button>
+          <button mat-button class="menu-button"  [routerLink]="['/hepatitis']">
+              <span>Hepatitis</span>
+          </button>
+      </mat-menu>
+      <button mat-button class="menu-button"  [routerLink]="['/datenschutz']">
+          <span>Haftung und Datenschutz</span>
+      </button>
   </mat-drawer>
-  <mat-drawer-content>
-    <router-outlet></router-outlet>
+  <mat-drawer-content class="content" [ngClass]="{'isMobile': isMobile}">
+      <div class="content mat-elevation-z4" [ngClass]="{'isMobile': isMobile}">
+          <router-outlet></router-outlet>
+      </div>
+      <div>
+          <go-footer></go-footer> 
+      </div>
   </mat-drawer-content>
 </mat-drawer-container>
+</div>

@@ -1,36 +1,46 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { MatDrawer } from '@angular/material/sidenav';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { CdkMenu, CdkMenuItem } from '@angular/cdk/menu';
+
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { ContentComponent } from '../content/sites/startseite/content.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { distinctUntilChanged, tap } from 'rxjs/operators';
+import { FooterComponent } from "../footer/footer.component";
+
+
 
 @Component({
-  selector: 'go-sidenav',
-  standalone: true,
-  imports: [
-    MatSidenavModule,
-    RouterModule,
-    MatMenuModule,
-    MatButtonModule,
-    NgOptimizedImage,
-    MatIconModule,
-    ContentComponent,
-  ],
-  templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.scss']
+    selector: 'go-sidenav',
+    standalone: true,
+    templateUrl: './sidenav.component.html',
+    styleUrls: ['./sidenav.component.scss'],
+    imports: [
+        CommonModule,
+        MatSidenavModule,
+        RouterModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatToolbarModule,
+        NgOptimizedImage,
+        MatIconModule,
+        ContentComponent,
+        FooterComponent,
+    ]
 })
 
 export class SidenavComponent implements OnInit {
   @ViewChild(MatDrawer) drawer!: MatDrawer;
+
+  isMobile = false;
+
 
   Breakpoints = Breakpoints;
   currentBreakpoint: string = '';
@@ -63,23 +73,40 @@ export class SidenavComponent implements OnInit {
     if (result.matches) {
       if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
         this.currentBreakpoint = Breakpoints.XLarge;
-
+        if (this.drawer) {
+          this.isMobile = false;
+          this.drawer.open();
+          console.log("sidebar open");
+        }
       } else if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
         this.currentBreakpoint = Breakpoints.Large;
-
+        if (this.drawer) {
+          this.isMobile = false;
+          this.drawer.open();
+          console.log("sidebar open");
+        }
       } else if (this.breakpointObserver.isMatched(Breakpoints.Medium)) {
         this.currentBreakpoint = Breakpoints.Medium;
         if (this.drawer) {
+          this.isMobile = false;
           this.drawer.open();
+          console.log("sidebar open");
         }
 
       } else if (this.breakpointObserver.isMatched(Breakpoints.Small)) {
         this.currentBreakpoint = Breakpoints.Small;
         if (this.drawer) {
+          this.isMobile = true;
           this.drawer.close();
+          console.log("sidebar close");
         }
       } else if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
         this.currentBreakpoint = Breakpoints.XSmall;
+        if (this.drawer) {
+          this.isMobile = true;
+          this.drawer.close();
+          console.log("sidebar close");
+        }
       }
     }
   }
