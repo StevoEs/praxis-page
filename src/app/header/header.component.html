@@ -1,27 +1,5 @@
-<button *ngIf="shouldShowMenuButton()" mat-button [matMenuTriggerFor]="menu" #topnav>Menu</button>
-<div class="menu" cdkMenu>
-    <mat-menu #menu="matMenu">  
-        <button class="menu-item" cdkMenuItem routerLink="">Startseite</button>
-        <button class="menu-item" cdkMenuItem routerLink="/gottberg">Dr. Gottberg</button>
-        <button class="menu-item" cdkMenuItem [routerLink]="['/team']">Das Team</button>
-        <button class="menu-item" cdkMenuItem [routerLink]="['/schwerpunkte']">Schwerpunkte</button>
-        <button class="menu-item" cdkMenuItem [routerLink]="['/anfahrt']">Anfahrt</button>
-        <button class="menu-item" cdkMenuItem [routerLink]="['/urlaub']">Urlaubszeiten</button>
-        <button class="menu-item" cdkMenuItem [routerLink]="['/notfall']">Im Notfall</button>
-
-
-        <button mat-button [matMenuTriggerFor]="belowMenu" aria-label="icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-            Links und Adressen
-        </button>
-        <mat-menu #belowMenu="matMenu" yPosition="below">
-            <button class="menu-item" cdkMenuItem [routerLink]="['/reisemedizin']">Reisemedizin</button>
-            <button class="menu-item" cdkMenuItem [routerLink]="['/entzug']">Entzugskliniken</button>
-            <button class="menu-item" cdkMenuItem [routerLink]="['/sucht']">Suchtberatung</button>
-            <button class="menu-item" cdkMenuItem [routerLink]="['/hepatitis']">Hepatitis</button>
-        </mat-menu>
-        <button class="menu-item" cdkMenuItem [routerLink]="['/datenschutz']">Haftung und Datenschutz</button>
-  </mat-menu> 
+<div class="menu-button">
+    <button type="button" mat-button>
+        <mat-icon mat-icon>menu</mat-icon>
+    </button>
 </div>
-
-<h1 id="heading-text">Dr. med. Joachim Gottberg</h1>
