@@ -1,0 +1,19 @@
+<h1>Reisemedizin und Impfungen</h1>
+
+<p class="description">Hier finden Sie Adressen, unter denen Sie sich vor einer Fernreise über Infektionserkrankungen und Impfungen beraten lassen können.</p>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="webadresse">
+        <mat-header-cell *matHeaderCellDef> Webadresse </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.webadresse}} </mat-cell>
+      </ng-container>
+    
+      <!-- Adresse Column -->
+      <ng-container matColumnDef="beschreibung">
+        <mat-header-cell *matHeaderCellDef> Beschreibung </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.beschreibung}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

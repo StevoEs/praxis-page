@@ -37,3 +37,15 @@ $praxis-page-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.description{
+  background-color: #EEEEEE;
+}
+
+.warn-text {
+  background-color: #F9DEED;
+}
+
+a {
+  color: grey;
+}

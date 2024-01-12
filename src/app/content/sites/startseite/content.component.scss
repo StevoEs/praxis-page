@@ -1,0 +1,19 @@
+table {
+    width: 610px;
+  }
+
+
+.mdc-data-table__cell, .mdc-data-table__header-cell {
+    padding: 0;
+    text-align: center;
+    min-width: none;
+    text-justify: auto;
+  }
+
+  .mdc-data-table__table {
+    min-width: 0;
+  }
+
+.link-button {
+    margin: 5px 10px;
+  }
