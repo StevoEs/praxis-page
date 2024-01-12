@@ -40,35 +40,55 @@ export class SidenavComponent implements OnInit {
   @ViewChild(MatDrawer) drawer!: MatDrawer;
 
   isMobile = false;
-
-
-  Breakpoints = Breakpoints;
   currentBreakpoint: string = '';
-
-  readonly breakpoint$ = this.breakpointObserver
-    .observe([Breakpoints.XLarge, Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
-    .pipe(
-      tap(value => console.log(value)),
-      distinctUntilChanged()
-    );
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-    this.breakpoint$.subscribe(result => {
-      this.breakpointChanged(result);
-      this.breakpointObserver.observe([
-        Breakpoints.XLarge,
-        Breakpoints.Large,
-        Breakpoints.Medium,
-        Breakpoints.Small,
-        Breakpoints.XSmall,
-      ]).subscribe(result => {
-        this.applyStyles(result);
-      });
+    this.breakpointObserver.observe([
+      Breakpoints.XLarge,
+      Breakpoints.Large,
+      Breakpoints.Medium
+    ])
+    .pipe()
+    .subscribe(result => {
+      if (result.matches && this.drawer) { // Überprüfe, ob this.drawer definiert ist
+        this.isMobile = false;
+        this.drawer.open();
+        console.log("sidebar open");
+      }
+    });
+
+    this.breakpointObserver.observe([
+      Breakpoints.Small,
+      Breakpoints.XSmall
+    ])
+    .pipe()
+    .subscribe(result => {
+      if (result.matches && this.drawer) { // Überprüfe, ob this.drawer definiert ist
+        this.isMobile = true;
+        this.drawer.close();
+        console.log("sidebar close");
+      }
     });
   }
 
+  private breakpointChanged(result: any) {
+    if (result.matches) {
+      if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
+        this.currentBreakpoint = Breakpoints.XLarge;
+      } else if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
+        this.currentBreakpoint = Breakpoints.Large;
+      } else if (this.breakpointObserver.isMatched(Breakpoints.Medium)) {
+        this.currentBreakpoint = Breakpoints.Medium;
+      } else if (this.breakpointObserver.isMatched(Breakpoints.Small)) {
+        this.currentBreakpoint = Breakpoints.Small;
+      } else if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
+        this.currentBreakpoint = Breakpoints.XSmall;
+      }
+    }
+  }
+/*
   private breakpointChanged(result: any) {
     if (result.matches) {
       if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
@@ -110,20 +130,5 @@ export class SidenavComponent implements OnInit {
       }
     }
   }
-
-  private applyStyles(result: any) {
-    if (result.matches) {
-      if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
-        // Ändere hier die CSS-Stile für extra large Bildschirmgröße
-      } else if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
-        // Ändere hier die CSS-Stile für large Bildschirmgröße
-      } else if (this.breakpointObserver.isMatched(Breakpoints.Medium)) {
-        // Ändere hier die CSS-Stile für medium Bildschirmgröße
-      } else if (this.breakpointObserver.isMatched(Breakpoints.Small)) {
-        // Ändere hier die CSS-Stile für small Bildschirmgröße
-      } else if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
-        // Ändere hier die CSS-Stile für extra small Bildschirmgröße
-      }
-    }
-  }
+*/
 }
