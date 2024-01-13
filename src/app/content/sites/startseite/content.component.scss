@@ -1,6 +1,17 @@
-table {
-    width: 610px;
-  }
+#table-times {
+  max-width: 670px;
+  min-width: 340px;
+}
+
+#table-time-head {
+  height: 30px;
+  font-size: 10px;
+}
+
+#table-time-row {
+  height: 26px;
+  font-size: 9px;
+}
 
 
 .mdc-data-table__cell, .mdc-data-table__header-cell {
@@ -10,9 +21,8 @@ table {
     text-justify: auto;
   }
 
-  .mdc-data-table__table {
-    min-width: 0;
-  }
+
+
 
 .link-button {
     margin: 5px 10px;
