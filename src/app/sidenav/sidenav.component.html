@@ -5,14 +5,15 @@
             <button type="button" mat-button (click)="drawer.toggle()">
                 <mat-icon mat-icon id="burger">menu</mat-icon>
             </button>
+            <span id="menu-text">Menü</span>
         </div>
         <div class="toolbar-heading">
             <span>Dr. med. Joachim Gottberg</span>
         </div> 
     </mat-toolbar>
 
-<mat-drawer-container class="drawer-container" [ngClass]="{'isMobile': isMobile}">
-  <mat-drawer mode="side" #drawer>
+<mat-drawer-container class="drawer-container">
+  <mat-drawer class="side-drawer" mode="side" [ngClass]="{'isMobile': isMobile}" #drawer>
       <img class="sidenav-image mat-elevation-z8" ngSrc="../assets/praxisklein.jpg" width="150" height="226" alt="Praxiseingang" priority>
       <button mat-button class="menu-button"  routerLink="">
           <span>Startseite</span>
@@ -55,16 +56,13 @@
               <span>Hepatitis</span>
           </button>
       </mat-menu>
-      <button mat-button class="menu-button"  [routerLink]="['/datenschutz']">
-          <span>Haftung und Datenschutz</span>
-      </button>
   </mat-drawer>
-  <mat-drawer-content class="content" [ngClass]="{'isMobile': isMobile}">
-      <div class="content mat-elevation-z4" [ngClass]="{'isMobile': isMobile}">
+  <mat-drawer-content class="content" [ngClass]="{'isMobile-content': isMobile}">
+     <div class="content-wrapper mat-elevation-z4" [ngClass]="{'isMobile-wrapper': isMobile}">
+        <div>
           <router-outlet></router-outlet>
-      </div>
-      <div>
-          <go-footer></go-footer> 
+        </div>
+          <go-footer></go-footer>
       </div>
   </mat-drawer-content>
 </mat-drawer-container>

@@ -1,1 +1,33 @@
-<p>sucht works!</p>
+<h1>Suchtberatung</h1>
+
+<p class="description">Hier finden Sie eine Auswahl von Suchtberatungsstellen im Hamburger Raum.</p>
+
+
+<mat-table id="table-sucht" [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--class="mat-elevation-z8"-->
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Beratungsstelle </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+        
+          <!-- Adresse Column -->
+          <ng-container matColumnDef="adresse">
+            <mat-header-cell *matHeaderCellDef> Adresse </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.adresse}} </mat-cell>
+          </ng-container>
+        
+          <!-- Telefon Column -->
+          <ng-container matColumnDef="telefon">
+            <mat-header-cell *matHeaderCellDef> Telefon </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.telefon}} </mat-cell>
+          </ng-container>
+        
+          <mat-header-row id="table-sucht-head" *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row id="table-sucht-row" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+    </mat-table>
+
+    <p>
+        Weitere Adressen von Beratungsstellen finden Sie auf der Homepage des <a href="http://www.suchthh.de/kursbuch/summary.php3?3&1" target="_blank">Büros für Suchtprävention</a> der Hamburgischen Landesstelle gegen die Suchtgefahren e.V.
+    </p>

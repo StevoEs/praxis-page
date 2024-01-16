@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
@@ -12,8 +12,8 @@ import { ContentComponent } from '../content/sites/startseite/content.component'
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { distinctUntilChanged, tap } from 'rxjs/operators';
 import { FooterComponent } from "../footer/footer.component";
+import { slideInAnimation } from '../animations';
 
 
 
@@ -33,18 +33,26 @@ import { FooterComponent } from "../footer/footer.component";
         MatIconModule,
         ContentComponent,
         FooterComponent,
+    ],
+    animations: [
+      slideInAnimation
     ]
 })
 
-export class SidenavComponent implements OnInit {
-  @ViewChild(MatDrawer) drawer!: MatDrawer;
+export class SidenavComponent implements AfterViewInit {
+@ViewChild(MatDrawer) drawer!: MatDrawer;
 
   isMobile = false;
   currentBreakpoint: string = '';
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
 
-  ngOnInit(): void {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private cdr: ChangeDetectorRef,
+    private router: Router  // Router hinzufügen
+  ) { }
+
+  ngAfterViewInit(): void {
     this.breakpointObserver.observe([
       Breakpoints.XLarge,
       Breakpoints.Large,
@@ -52,7 +60,7 @@ export class SidenavComponent implements OnInit {
     ])
     .pipe()
     .subscribe(result => {
-      if (result.matches && this.drawer) { // Überprüfe, ob this.drawer definiert ist
+      if (result.matches && this.drawer) {
         this.isMobile = false;
         this.drawer.open();
         console.log("sidebar open");
@@ -65,70 +73,15 @@ export class SidenavComponent implements OnInit {
     ])
     .pipe()
     .subscribe(result => {
-      if (result.matches && this.drawer) { // Überprüfe, ob this.drawer definiert ist
+      if (result.matches && this.drawer) {
         this.isMobile = true;
         this.drawer.close();
         console.log("sidebar close");
       }
     });
-  }
 
-  private breakpointChanged(result: any) {
-    if (result.matches) {
-      if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
-        this.currentBreakpoint = Breakpoints.XLarge;
-      } else if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
-        this.currentBreakpoint = Breakpoints.Large;
-      } else if (this.breakpointObserver.isMatched(Breakpoints.Medium)) {
-        this.currentBreakpoint = Breakpoints.Medium;
-      } else if (this.breakpointObserver.isMatched(Breakpoints.Small)) {
-        this.currentBreakpoint = Breakpoints.Small;
-      } else if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
-        this.currentBreakpoint = Breakpoints.XSmall;
-      }
-    }
+        
+    this.cdr.detectChanges();
   }
-/*
-  private breakpointChanged(result: any) {
-    if (result.matches) {
-      if (this.breakpointObserver.isMatched(Breakpoints.XLarge)) {
-        this.currentBreakpoint = Breakpoints.XLarge;
-        if (this.drawer) {
-          this.isMobile = false;
-          this.drawer.open();
-          console.log("sidebar open");
-        }
-      } else if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
-        this.currentBreakpoint = Breakpoints.Large;
-        if (this.drawer) {
-          this.isMobile = false;
-          this.drawer.open();
-          console.log("sidebar open");
-        }
-      } else if (this.breakpointObserver.isMatched(Breakpoints.Medium)) {
-        this.currentBreakpoint = Breakpoints.Medium;
-        if (this.drawer) {
-          this.isMobile = false;
-          this.drawer.open();
-          console.log("sidebar open");
-        }
-
-      } else if (this.breakpointObserver.isMatched(Breakpoints.Small)) {
-        this.currentBreakpoint = Breakpoints.Small;
-        if (this.drawer) {
-          this.isMobile = true;
-          this.drawer.close();
-          console.log("sidebar close");
-        }
-      } else if (this.breakpointObserver.isMatched(Breakpoints.XSmall)) {
-        this.currentBreakpoint = Breakpoints.XSmall;
-        if (this.drawer) {
-          this.isMobile = true;
-          this.drawer.close();
-          console.log("sidebar close");
-        }
-      }
-    }
-  }
-*/
 }
+
