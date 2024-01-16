@@ -16,7 +16,10 @@ import { PageNotFoundComponent } from "./content/sites/page-not-found/page-not-f
 
 
 export const routes: Routes = [
-    { path: '', component: ContentComponent },
+    {   path: '',
+        component: ContentComponent,
+        data: { animation: 'ContentPage'} 
+    },
     { path: 'gottberg', component: GottbergComponent},
     { path: 'team', component: TeamComponent},
     { path: 'schwerpunkte', component: SchwerpunkteComponent},
@@ -29,5 +32,5 @@ export const routes: Routes = [
     { path: 'hepatitis', component: HepatitisComponent},
     { path: 'datenschutz', component: DatenschutzComponent},
     { path: 'impressum', component: ImpressumComponent},
-    { path: '**', component: PageNotFoundComponent },
+    { path: '**', redirectTo: '/' },
 ];

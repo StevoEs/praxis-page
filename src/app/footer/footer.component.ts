@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
-import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'go-footer',
   standalone: true,
-  imports: [RouterModule, MatMenuModule, MatButtonModule, MatIconModule,],
+  imports: [RouterModule, MatIconModule,],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })

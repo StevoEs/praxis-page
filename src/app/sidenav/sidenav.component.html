@@ -56,13 +56,12 @@
               <span>Hepatitis</span>
           </button>
       </mat-menu>
-      <button mat-button class="menu-button"  [routerLink]="['/datenschutz']">
-          <span>Haftung und Datenschutz</span>
-      </button>
   </mat-drawer>
   <mat-drawer-content class="content" [ngClass]="{'isMobile-content': isMobile}">
      <div class="content-wrapper mat-elevation-z4" [ngClass]="{'isMobile-wrapper': isMobile}">
+        <div>
           <router-outlet></router-outlet>
+        </div>
           <go-footer></go-footer>
       </div>
   </mat-drawer-content>

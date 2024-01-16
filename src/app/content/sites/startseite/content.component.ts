@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { NgOptimizedImage } from '@angular/common'
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 
 export interface PeriodicElement {
@@ -55,5 +56,4 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ContentComponent {
   displayedColumns: string[] = ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag'];
   dataSource = ELEMENT_DATA;
-
 }

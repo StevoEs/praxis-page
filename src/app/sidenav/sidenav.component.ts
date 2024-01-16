@@ -1,6 +1,6 @@
-import { Component, AfterViewInit, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
@@ -12,8 +12,8 @@ import { ContentComponent } from '../content/sites/startseite/content.component'
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { distinctUntilChanged, tap } from 'rxjs/operators';
 import { FooterComponent } from "../footer/footer.component";
+import { slideInAnimation } from '../animations';
 
 
 
@@ -33,18 +33,23 @@ import { FooterComponent } from "../footer/footer.component";
         MatIconModule,
         ContentComponent,
         FooterComponent,
+    ],
+    animations: [
+      slideInAnimation
     ]
 })
 
 export class SidenavComponent implements AfterViewInit {
-  @ViewChild(MatDrawer) drawer!: MatDrawer;
+@ViewChild(MatDrawer) drawer!: MatDrawer;
 
   isMobile = false;
   currentBreakpoint: string = '';
 
+
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private cdr: ChangeDetectorRef  // Füge ChangeDetectorRef hinzu
+    private cdr: ChangeDetectorRef,
+    private router: Router  // Router hinzufügen
   ) { }
 
   ngAfterViewInit(): void {
@@ -75,6 +80,7 @@ export class SidenavComponent implements AfterViewInit {
       }
     });
 
+        
     this.cdr.detectChanges();
   }
 }

@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
-
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -10,9 +9,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 
-import { HeaderComponent } from '../app/header/header.component';
 import { FooterComponent } from '../app/footer/footer.component';
 import { SidenavComponent } from "./sidenav/sidenav.component";
+import { slideInAnimation } from './animations';
 
 
 @Component({
@@ -29,9 +28,11 @@ import { SidenavComponent } from "./sidenav/sidenav.component";
         MatIconModule,
         NgOptimizedImage,
         MatProgressSpinnerModule,
-        HeaderComponent,
         FooterComponent,
-        SidenavComponent]
+        SidenavComponent],
+        animations: [
+          slideInAnimation
+        ]
 })
 
 

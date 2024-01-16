@@ -10,9 +10,10 @@
   Mobil: 0176-57065441<br />
   E-Mail: <a href="mailto:drgottberg@gmx.de">drgottberg&#64;gmx.de</a></p>
 
-  <h2>Sprechzeiten</h2>
+  <h2><u>Sprechzeiten</u></h2>
       <!-- day Column -->
-  <table id="table-times" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <div class="table-wrapper">
+  <table id="table-times" mat-table [dataSource]="dataSource" class="mat-elevation-z8" #table>
 <!--class="mat-elevation-z8"-->
     <ng-container matColumnDef="montag">
       <th mat-header-cell *matHeaderCellDef> Montag </th>
@@ -49,7 +50,7 @@
     <tr id="table-time-row" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
   </table>
-
+  </div>
   <h3>Wenn Sie zum ersten Mal zu uns kommen, sollten Sie folgende Unterlagen mitbringen:</h3>
   <mat-list role="list">
     <mat-list-item role="listitem">
