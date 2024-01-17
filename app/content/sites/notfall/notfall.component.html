@@ -1,0 +1,39 @@
+<h1>Im Notfall</h1>
+
+<p class="description">
+    Hier finden Sie eine Liste mit wichtigen Telefonnummern,
+    unter denen Sie in Notfällen und außerhalb unserer
+    Sprechzeiten Hilfe erhalten.
+  </p>
+
+  <p class="warn-text">
+    Bei lebensbedrohlichen medizinischen Erkrankungen und
+    Unfällen rufen Sie bitte die <b>Notrufnummer 112</b> an.
+  </p>
+
+  <h2>Weitere Adressen und Links</h2>
+
+<!-- simple-table.component.html -->
+<mat-table id="table-emergency" [dataSource]="dataSource" class="mat-elevation-z8">
+<!--class="mat-elevation-z8"-->
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Notdienst </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+  
+    <!-- Adresse Column -->
+    <ng-container matColumnDef="adresse">
+      <mat-header-cell *matHeaderCellDef> Adresse </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.adresse}} </mat-cell>
+    </ng-container>
+  
+    <!-- Telefon Column -->
+    <ng-container matColumnDef="telefon">
+      <mat-header-cell *matHeaderCellDef> Telefon </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.telefon}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row id="table-emergency-head" *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row id="table-emergency-row" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
