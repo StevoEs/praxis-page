@@ -1,6 +1,9 @@
-import { Component, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ChangeDetectorRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, NavigationEnd } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { DrawerService } from '../drawer.service';
 
 
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
@@ -39,8 +42,9 @@ import { slideInAnimation } from '../animations';
     ]
 })
 
-export class SidenavComponent implements AfterViewInit {
-@ViewChild(MatDrawer) drawer!: MatDrawer;
+export class SidenavComponent implements AfterViewInit, OnInit {
+  @ViewChild(MatDrawer) drawer!: MatDrawer;
+  isDrawerOpen$: Observable<boolean> = this.drawerService.isDrawerOpen$;
 
   isMobile = false;
   currentBreakpoint: string = '';
@@ -48,9 +52,28 @@ export class SidenavComponent implements AfterViewInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
+    private drawerService: DrawerService,
     private cdr: ChangeDetectorRef,
-    private router: Router  // Router hinzufügen
+    private router: Router 
   ) { }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.drawerService.toggleDrawer();
+      }
+    });
+  }
+
+  handleDrawerToggle(): void {
+    this.drawerService.toggleDrawer();
+  }
+
+
+
+  toggleDrawer(): void {
+    this.drawerService.toggleDrawer();
+  }
 
   ngAfterViewInit(): void {
     this.breakpointObserver.observe([
