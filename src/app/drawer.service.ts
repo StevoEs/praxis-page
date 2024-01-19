@@ -12,3 +12,6 @@ export class DrawerService {
     this.isDrawerOpenSubject.next(!this.isDrawerOpenSubject.value);
   }
 }
+
+
+

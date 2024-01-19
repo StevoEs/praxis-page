@@ -16,21 +16,72 @@ import { PageNotFoundComponent } from "./content/sites/page-not-found/page-not-f
 
 
 export const routes: Routes = [
-    {   path: '',
+    {   path: '', pathMatch: 'full', redirectTo: '/startseite' },
+    {   
+        path: 'startseite', 
         component: ContentComponent,
-        data: { animation: 'ContentPage'} 
+        data: {animation: 'startseitePage'}
     },
-    { path: 'gottberg', component: GottbergComponent},
-    { path: 'team', component: TeamComponent},
-    { path: 'schwerpunkte', component: SchwerpunkteComponent},
-    { path: 'anfahrt', component: AnfahrtComponent},
-    { path: 'urlaub', component: UrlaubComponent},
-    { path: 'notfall', component: NotfallComponent},
-    { path: 'reisemedizin', component: ReisemedizinComponent},
-    { path: 'entzug', component: EntzugComponent},
-    { path: 'sucht', component: SuchtComponent},
-    { path: 'hepatitis', component: HepatitisComponent},
-    { path: 'datenschutz', component: DatenschutzComponent},
-    { path: 'impressum', component: ImpressumComponent},
-    { path: '**', redirectTo: '/' },
+    {   
+        path: 'gottberg', 
+        component: GottbergComponent,
+        data: {animation: 'gottbergPage'}
+    },
+    {   
+        path: 'team', 
+        component: TeamComponent,
+        data: {animation: 'teamPage'}
+    },
+    {   
+        path: 'schwerpunkte', 
+        component: SchwerpunkteComponent,
+        data: {animation: 'schwerpunktePage'}
+    },
+    {   
+        path: 'anfahrt',
+        component: AnfahrtComponent,
+        data: {animation: 'anfahrtPage'}
+    },
+    {   
+        path: 'urlaub', 
+        component: UrlaubComponent,
+        data: {animation: 'urlaubPage'}
+    },
+    {  
+        path: 'notfall', 
+        component: NotfallComponent,
+        data: {animation: 'notfallPage'}
+    },
+    {   
+        path: 'reisemedizin', 
+        component: ReisemedizinComponent,
+        data: {animation: 'reisemedizinPage'}
+    },
+    {   
+        path: 'entzug', 
+        component: EntzugComponent,
+        data: {animation: 'entzugPage'}
+    },
+    {   
+        path: 'sucht', 
+        component: SuchtComponent,
+        data: {animation: 'suchtPage'}
+    },
+    {   
+        path: 'hepatitis', 
+        component: HepatitisComponent,
+        data: {animation: 'hepatitisPage'}
+    },
+    {   
+        path: 'datenschutz', 
+        component: DatenschutzComponent,
+        data: {animation: 'datenschutzPage'}
+    },
+    {   
+        path: 'impressum', 
+        component: ImpressumComponent,
+        data: {animation: 'impressumPage'}
+    },
+    {   
+        path: '**', redirectTo: '/' },
 ];

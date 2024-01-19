@@ -1,12 +1,13 @@
-import { Component, AfterViewInit, ViewChild, ChangeDetectorRef, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule, NavigationEnd } from '@angular/router';
-import { Observable } from 'rxjs';
-
-import { DrawerService } from '../drawer.service';
+import { ChildrenOutletContexts, Router, RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
+
+import { MatDrawer, MatDrawerMode, MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { NgOptimizedImage } from '@angular/common';
@@ -14,8 +15,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { ContentComponent } from '../content/sites/startseite/content.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 import { FooterComponent } from "../footer/footer.component";
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 import { slideInAnimation } from '../animations';
 
 
@@ -42,40 +51,39 @@ import { slideInAnimation } from '../animations';
     ]
 })
 
-export class SidenavComponent implements AfterViewInit, OnInit {
+export class SidenavComponent implements OnInit {
   @ViewChild(MatDrawer) drawer!: MatDrawer;
-  isDrawerOpen$: Observable<boolean> = this.drawerService.isDrawerOpen$;
 
-  isMobile = false;
+  //Proberty initalisieren//
+  isDrawerOpen: boolean = true
   currentBreakpoint: string = '';
-
+  isMobile: boolean = false;
+  drawerMode: MatDrawerMode = 'side';
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private drawerService: DrawerService,
     private cdr: ChangeDetectorRef,
-    private router: Router 
-  ) { }
+    private contexts: ChildrenOutletContexts,
+    ) {}
+
+    getRouteAnimationData() {
+      return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
+    }
+  
+// click events
+  toggleDrawer() {
+    this.isDrawerOpen = !this.isDrawerOpen;
+  }
+  closeDrawer() {
+    this.isDrawerOpen = false;
+  }
+  openDrawer() {
+    this.isDrawerOpen = true;
+  }
+
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.drawerService.toggleDrawer();
-      }
-    });
-  }
-
-  handleDrawerToggle(): void {
-    this.drawerService.toggleDrawer();
-  }
-
-
-
-  toggleDrawer(): void {
-    this.drawerService.toggleDrawer();
-  }
-
-  ngAfterViewInit(): void {
+ 
     this.breakpointObserver.observe([
       Breakpoints.XLarge,
       Breakpoints.Large,
@@ -106,5 +114,9 @@ export class SidenavComponent implements AfterViewInit, OnInit {
         
     this.cdr.detectChanges();
   }
+
 }
+
+
+
 

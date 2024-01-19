@@ -8,22 +8,66 @@
   right: 0;
 }
 
+// HEADING TOOLBAR
+
 .toolbar {
-    position: relative;
-    z-index: 2;
-    color: white;
-  }
+  position: relative;
+  z-index: 2;
+  color: white;
+}
 
 .toolbar-heading {
-  margin-left: 6px;
-  font-size: 1rem;
-  text-align: center;
+margin-left: 6px;
+font-size: 1rem;
+text-align: center;
 }
 
 .toolbar-heading.isMobile-heading {
-  margin-left: 6px;
-  font-size: 1.1rem;
+margin-left: 6px;
+font-size: 1.1rem;
 }
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  color: black;
+
+  user-select: none;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+#burger {
+font-size: 2rem;
+height: 2rem;
+width: 2rem;
+} 
+
+#menu-text {
+color: white;
+}
+
+.menu-item:hover {
+background-color: rgb(208, 208, 208);
+}
+
+.menu-item:active {
+background-color: rgb(170, 170, 170);
+} 
+
 
 .drawer-container {
   height: 100vh;
@@ -63,55 +107,16 @@
 }
 
 .content-wrapper {
-  max-width: 80%;
   padding: 8px;
+  padding-right: 30%;
 }
 
 .content-wrapper.isMobile-wrapper {
   max-width: 100%;
+  padding-right: 8px;
 }
 
 
-  .menu-button {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      font-size: 1rem;
-      color: black;
-  
-      user-select: none;
-      min-width: 64px;
-      line-height: 36px;
-      padding: 0;
-  
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      flex: 1;
-  
-      background-color: transparent;
-      cursor: pointer;
-      border: none;
-  }
-
-  #burger {
-    font-size: 2rem;
-    height: 2rem;
-    width: 2rem;
-   } 
-  
-   #menu-text {
-    color: white;
-   }
-  
-  .menu-item:hover {
-    background-color: rgb(208, 208, 208);
-  }
-  
-  .menu-item:active {
-    background-color: rgb(170, 170, 170);
-  }
 
 .sidenav-image {
   display: block;

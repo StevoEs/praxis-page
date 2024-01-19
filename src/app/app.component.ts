@@ -29,7 +29,8 @@ import { slideInAnimation } from './animations';
         NgOptimizedImage,
         MatProgressSpinnerModule,
         FooterComponent,
-        SidenavComponent],
+        SidenavComponent
+      ],
         animations: [
           slideInAnimation
         ]
