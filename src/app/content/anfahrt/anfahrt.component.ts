@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common'
 import { GoogleMapsModule } from '@angular/google-maps'
 
-import { FooterComponent } from "../../../footer/footer.component";
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'go-anfahrt',

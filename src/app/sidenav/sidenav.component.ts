@@ -8,7 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { ContentComponent } from '../content/sites/startseite/content.component';
+import { ContentComponent } from '../content/startseite/content.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { FooterComponent } from "../footer/footer.component";

@@ -1,18 +1,18 @@
 import { Routes } from '@angular/router';
-import { ContentComponent } from "./content/sites/startseite/content.component";
-import { GottbergComponent } from "./content/sites/gottberg/gottberg.component";
-import { TeamComponent } from "./content/sites/team/team.component";
-import { SchwerpunkteComponent } from "./content/sites/schwerpunkte/schwerpunkte.component";
-import { AnfahrtComponent } from "./content/sites/anfahrt/anfahrt.component";
-import { UrlaubComponent } from "./content/sites/urlaub/urlaub.component";
-import { NotfallComponent } from "./content/sites/notfall/notfall.component";
-import { ReisemedizinComponent } from "./content/sites/reisemedizin/reisemedizin.component";
-import { EntzugComponent } from "./content/sites/entzug/entzug.component";
-import { SuchtComponent } from "./content/sites/sucht/sucht.component";
-import { HepatitisComponent } from "./content/sites/hepatitis/hepatitis.component";
-import { DatenschutzComponent } from "./content/sites/datenschutz/datenschutz.component";
-import { ImpressumComponent } from "./content/sites/impressum/impressum.component";
-import { PageNotFoundComponent } from "./content/sites/page-not-found/page-not-found.component";
+import { ContentComponent } from "./content/startseite/content.component";
+import { GottbergComponent } from "./content/gottberg/gottberg.component";
+import { TeamComponent } from "./content/team/team.component";
+import { SchwerpunkteComponent } from "./content/schwerpunkte/schwerpunkte.component";
+import { AnfahrtComponent } from "./content/anfahrt/anfahrt.component";
+import { UrlaubComponent } from "./content/urlaub/urlaub.component";
+import { NotfallComponent } from "./content/notfall/notfall.component";
+import { ReisemedizinComponent } from "./content/reisemedizin/reisemedizin.component";
+import { EntzugComponent } from "./content/entzug/entzug.component";
+import { SuchtComponent } from "./content/sucht/sucht.component";
+import { HepatitisComponent } from "./content/hepatitis/hepatitis.component";
+import { DatenschutzComponent } from "./content/datenschutz/datenschutz.component";
+import { ImpressumComponent } from "./content/impressum/impressum.component";
+import { PageNotFoundComponent } from "./content/page-not-found/page-not-found.component";
 
 
 export const routes: Routes = [

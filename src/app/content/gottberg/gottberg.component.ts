@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 
-import { FooterComponent } from "../../../footer/footer.component";
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'go-gottberg',

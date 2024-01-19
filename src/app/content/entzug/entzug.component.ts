@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatTableModule} from '@angular/material/table';
 
-import { FooterComponent } from "../../../footer/footer.component";
+import { FooterComponent } from "../../footer/footer.component";
 
 export interface Rehab {
   name: string;
