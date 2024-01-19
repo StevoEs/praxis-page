@@ -1,9 +1,9 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChildrenOutletContexts, Router, RouterModule } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
-import { MatDrawer, MatDrawerMode, MatSidenavModule } from '@angular/material/sidenav';
+import { MatDrawer, MatDrawerMode, MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { NgOptimizedImage } from '@angular/common';
@@ -40,13 +40,20 @@ import { slideInAnimation } from '../animations';
 })
 
 export class SidenavComponent implements OnInit {
-  @ViewChild(MatDrawer) drawer!: MatDrawer;
+  @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  //Proberty initalisieren//
-  isDrawerOpen: boolean = true
-  currentBreakpoint: string = '';
-  isMobile: boolean = false;
-  drawerMode: MatDrawerMode = 'side';
+  isMobile: boolean = true;
+  isDesktop: boolean = false;
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+
+  toggle() {
+    this.sidenav.toggle();
+  }
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -58,17 +65,6 @@ export class SidenavComponent implements OnInit {
       return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
     }
   
-// click events
-  toggleDrawer() {
-    this.isDrawerOpen = !this.isDrawerOpen;
-  }
-  closeDrawer() {
-    this.isDrawerOpen = false;
-  }
-  openDrawer() {
-    this.isDrawerOpen = true;
-  }
-
 
   ngOnInit(): void {
  
@@ -79,9 +75,10 @@ export class SidenavComponent implements OnInit {
     ])
     .pipe()
     .subscribe(result => {
-      if (result.matches && this.drawer) {
+      if (result.matches && this.sidenav) {
+        this.isDesktop = true;
         this.isMobile = false;
-        this.drawer.open();
+        this.sidenav.open();
         console.log("sidebar open");
       }
     });
@@ -92,9 +89,10 @@ export class SidenavComponent implements OnInit {
     ])
     .pipe()
     .subscribe(result => {
-      if (result.matches && this.drawer) {
+      if (result.matches && this.sidenav) {
         this.isMobile = true;
-        this.drawer.close();
+        this.isDesktop = false;
+        this.sidenav.close();
         console.log("sidebar close");
       }
     });

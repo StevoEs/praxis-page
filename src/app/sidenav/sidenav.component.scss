@@ -69,7 +69,7 @@ background-color: rgb(170, 170, 170);
 } 
 
 
-.drawer-container {
+.sidenav-container {
   height: 100vh;
 }
 
@@ -121,4 +121,9 @@ background-color: rgb(170, 170, 170);
 .sidenav-image {
   display: block;
   margin: auto;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  visibility: visible;
+  background-color: visibility;
 }

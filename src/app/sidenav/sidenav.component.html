@@ -2,21 +2,24 @@
 
     <mat-toolbar class="toolbar" color="primary">
         <div class="menu-button">
-            <button type="button" mat-button (click)="toggleDrawer()">
+            <button *ngIf="isMobile" type="button" mat-button (click)="sidenav.toggle()" [ngClass]="{'isMobile': isMobile}">
+                <mat-icon mat-icon id="burger">menu</mat-icon>
+            </button>
+            <button *ngIf="isDesktop" type="button" mat-button (click)="sidenav.toggle()" [ngClass]="{'isDesktop': isDesktop}">
                 <mat-icon mat-icon id="burger">menu</mat-icon>
             </button>
             <span id="menu-text">Menü</span>
         </div>
-        <div class="toolbar-heading" [ngClass]="{'isMobile-heading': isMobile}">
+        <div class="toolbar-heading">
             <span>Dr. med. Joachim Gottberg</span>
         </div> 
       </mat-toolbar>
 
-<mat-drawer-container class="drawer-container">
+<mat-sidenav-container class="sidenav-container" (backdropClick)="close('backdrop')">
    
     <!------MAT DRAWER------> 
-  <mat-drawer class="side-drawer" [opened]="isDrawerOpen"  [mode]="drawerMode" [ngClass]="{'isMobile': isMobile}">
-
+  <mat-sidenav  class="side-drawer" mode="over" #sidenav (keydown.escape)="close('escape')">
+  
       <img class="sidenav-image mat-elevation-z8" ngSrc="../assets/praxisklein.jpg" width="150" height="226" alt="Praxiseingang" priority>
 
       <button mat-button class="menu-button"  routerLink="/startseite">
@@ -60,14 +63,16 @@
               <span>Hepatitis</span>
           </button>
       </mat-menu>
-  </mat-drawer>
-  <mat-drawer-content class="content" [ngClass]="{'isMobile-content': isMobile}">
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
      <div class="content-wrapper mat-elevation-z4" [ngClass]="{'isMobile-wrapper': isMobile}">
         <div [@routeAnimations]="getRouteAnimationData()">
           <router-outlet></router-outlet>
         </div>
           
       </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
 </div>
