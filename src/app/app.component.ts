@@ -39,7 +39,7 @@ import { slideInAnimation } from './animations';
 
 
 export class AppComponent  {
-  title = 'praxis-page';
+  title = 'Dr. Gottberg';
 
 }
 

@@ -46,6 +46,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #F9DEED;
 }
 
+h1 {
+  margin: 0;
+  padding: 16px 0;
+}
+
 a {
   color: grey;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  visibility: visible;
+  background-color: transparent!important;
 }

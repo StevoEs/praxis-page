@@ -14,6 +14,7 @@
   position: relative;
   z-index: 2;
   color: white;
+  padding-left: 0;
 }
 
 .toolbar-heading {
@@ -22,9 +23,12 @@ font-size: 1rem;
 text-align: center;
 }
 
-.toolbar-heading.isMobile-heading {
-margin-left: 6px;
-font-size: 1.1rem;
+.menu-button-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  color: black;
 }
 
 .menu-button {
@@ -38,7 +42,8 @@ font-size: 1.1rem;
   user-select: none;
   min-width: 64px;
   line-height: 36px;
-  padding: 0;
+  padding: 0 8px;
+  margin-top: 8px;
 
   display: flex;
   align-items: center;
@@ -68,9 +73,12 @@ background-color: rgb(208, 208, 208);
 background-color: rgb(170, 170, 170);
 } 
 
-
 .sidenav-container {
   height: 100vh;
+}
+
+.sidenav-container.isMobile-container {
+  padding-top: 0;
 }
 
 .side-drawer {
@@ -86,6 +94,8 @@ background-color: rgb(170, 170, 170);
   
 .content { 
   width: 100%; 
+  padding: 8px;
+  padding-top: 0;
   
   justify-content: center;
   align-items: center;
@@ -107,13 +117,12 @@ background-color: rgb(170, 170, 170);
 }
 
 .content-wrapper {
-  padding: 8px;
-  padding-right: 30%;
+  padding: 0 20%;
 }
 
 .content-wrapper.isMobile-wrapper {
   max-width: 100%;
-  padding-right: 8px;
+  padding: 0;
 }
 
 
@@ -123,7 +132,3 @@ background-color: rgb(170, 170, 170);
   margin: auto;
 }
 
-.mat-drawer-backdrop.mat-drawer-shown {
-  visibility: visible;
-  background-color: visibility;
-}

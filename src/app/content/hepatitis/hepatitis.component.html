@@ -7,13 +7,14 @@
         <!-- Name Column -->
         <ng-container matColumnDef="adresse">
             <mat-header-cell *matHeaderCellDef> Adresse </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.adresse}} </mat-cell>
+            <mat-cell *matCellDef="let element">
+                <a [href]="element.adresse" target="_blank"> {{element.adresse}}</a> </mat-cell>
           </ng-container>
         
           <!-- Adresse Column -->
           <ng-container matColumnDef="anbieter">
             <mat-header-cell *matHeaderCellDef> Anbieter </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.anbieter}} </mat-cell>
+            <mat-cell *matCellDef="let element">{{element.anbieter}} </mat-cell>
           </ng-container>
         
           <mat-header-row id="table-hepatitis-head" *matHeaderRowDef="displayedColumns"></mat-header-row>

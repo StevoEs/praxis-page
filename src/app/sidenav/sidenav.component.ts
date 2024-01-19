@@ -1,12 +1,12 @@
-import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChildrenOutletContexts, Router, RouterModule } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { NgOptimizedImage } from '@angular/common';
 
 import { MatDrawer, MatDrawerMode, MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { ContentComponent } from '../content/startseite/content.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -59,13 +59,13 @@ export class SidenavComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private cdr: ChangeDetectorRef,
     private contexts: ChildrenOutletContexts,
+    private renderer: Renderer2,
     ) {}
 
     getRouteAnimationData() {
       return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
     }
   
-
   ngOnInit(): void {
  
     this.breakpointObserver.observe([
@@ -78,10 +78,12 @@ export class SidenavComponent implements OnInit {
       if (result.matches && this.sidenav) {
         this.isDesktop = true;
         this.isMobile = false;
-        this.sidenav.open();
+        //this.sidenav.open();
         console.log("sidebar open");
       }
     });
+
+
 
     this.breakpointObserver.observe([
       Breakpoints.Small,

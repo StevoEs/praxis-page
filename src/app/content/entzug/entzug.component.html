@@ -19,7 +19,8 @@
       <!-- Telefon Column -->
       <ng-container matColumnDef="telefon">
         <mat-header-cell *matHeaderCellDef> Telefon </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.telefon}} </mat-cell>
+        <mat-cell *matCellDef="let element">
+          <a [href]="'tel:' + element.telefon"> {{element.telefon}}</a> </mat-cell>
       </ng-container>
     
       <mat-header-row id="table-rehab-head" *matHeaderRowDef="displayedColumns"></mat-header-row>
