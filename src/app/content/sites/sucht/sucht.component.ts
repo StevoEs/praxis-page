@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatTableModule} from '@angular/material/table';
 
+import { FooterComponent } from "../../../footer/footer.component";
+
 export interface Suchtberatung {
   name: string;
   adresse: string;
@@ -30,7 +32,7 @@ const SUCHTBERATUNGT_DATA: Suchtberatung[] = [
 @Component({
   selector: 'go-sucht',
   standalone: true,
-  imports: [RouterModule, MatTableModule],
+  imports: [RouterModule, MatTableModule, FooterComponent],
   templateUrl: './sucht.component.html',
   styleUrl: './sucht.component.scss'
 })

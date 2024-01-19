@@ -1,11 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChildrenOutletContexts, Router, RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-
 
 import { MatDrawer, MatDrawerMode, MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
@@ -15,16 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ContentComponent } from '../content/sites/startseite/content.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-
 import { FooterComponent } from "../footer/footer.component";
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  // ...
-} from '@angular/animations';
+
 import { slideInAnimation } from '../animations';
 
 

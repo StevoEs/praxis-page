@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatTableModule} from '@angular/material/table';
 
+import { FooterComponent } from "../../../footer/footer.component";
+
 
 export interface Reisemedizin {
   webadresse: string;
@@ -20,7 +22,7 @@ const REISEMEDIZIN_DATA: Reisemedizin[] = [
 @Component({
   selector: 'go-reisemedizin',
   standalone: true,
-  imports: [RouterModule, MatTableModule],
+  imports: [RouterModule, MatTableModule, FooterComponent],
   templateUrl: './reisemedizin.component.html',
   styleUrl: './reisemedizin.component.scss'
 })

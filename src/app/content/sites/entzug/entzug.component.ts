@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatTableModule} from '@angular/material/table';
 
-
+import { FooterComponent } from "../../../footer/footer.component";
 
 export interface Rehab {
   name: string;
@@ -29,7 +29,7 @@ const REHAB_DATA: Rehab[] = [
 @Component({
   selector: 'go-entzug',
   standalone: true,
-  imports: [RouterModule, MatTableModule],
+  imports: [RouterModule, MatTableModule, FooterComponent],
   templateUrl: './entzug.component.html',
   styleUrl: './entzug.component.scss'
 })

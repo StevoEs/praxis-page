@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatTableModule} from '@angular/material/table';
 
+import { FooterComponent } from "../../../footer/footer.component";
+
 export interface Hepatitis {
   adresse: string;
   anbieter: string;
@@ -20,7 +22,7 @@ const HEPATITIS_DATA: Hepatitis[] = [
 @Component({
   selector: 'go-hepatitis',
   standalone: true,
-  imports: [RouterModule, MatTableModule],
+  imports: [RouterModule, MatTableModule, FooterComponent],
   templateUrl: './hepatitis.component.html',
   styleUrl: './hepatitis.component.scss'
 })

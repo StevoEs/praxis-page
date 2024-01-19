@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatTableModule} from '@angular/material/table';
 
+import { FooterComponent } from "../../../footer/footer.component";
+
 export interface Notdienst {
   name: string;
   adresse: string;
@@ -24,6 +26,7 @@ const NOTDIENST_DATA: Notdienst[] = [
   standalone: true,
   imports: [RouterModule,
             MatTableModule,
+            FooterComponent
           ],
   templateUrl: './notfall.component.html',
   styleUrl: './notfall.component.scss'
