@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChildrenOutletContexts, Router, RouterModule } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -39,10 +39,10 @@ import { slideInAnimation } from '../animations';
     ]
 })
 
-export class SidenavComponent implements OnInit {
+export class SidenavComponent implements AfterViewInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  isMobile: boolean = true;
+  isMobile: boolean = false;
   isDesktop: boolean = false;
   reason = '';
 
@@ -66,7 +66,11 @@ export class SidenavComponent implements OnInit {
       return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
     }
   
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    
+  
  
     this.breakpointObserver.observe([
       Breakpoints.XLarge,

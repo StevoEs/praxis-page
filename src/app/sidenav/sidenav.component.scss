@@ -94,7 +94,7 @@ background-color: rgb(170, 170, 170);
   
 .content { 
   width: 100%; 
-  padding: 8px;
+  padding: 0;
   padding-top: 0;
   
   justify-content: center;
@@ -103,11 +103,12 @@ background-color: rgb(170, 170, 170);
   font-size: 1rem;
   color: grey;
   
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 .content.isMobile-content {   
   margin: 0!important;
+  padding: 0 0!important;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
@@ -117,12 +118,13 @@ background-color: rgb(170, 170, 170);
 }
 
 .content-wrapper {
-  padding: 0 20%;
+  padding: 0 8px;
+  padding-right: 30%;
 }
 
 .content-wrapper.isMobile-wrapper {
   max-width: 100%;
-  padding: 0;
+  padding-right: 8px;
 }
 
 

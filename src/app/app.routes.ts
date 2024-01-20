@@ -83,5 +83,5 @@ export const routes: Routes = [
         data: {animation: 'impressumPage'}
     },
     {   
-        path: '**', redirectTo: '/' },
+        path: '**', component: PageNotFoundComponent },
 ];
