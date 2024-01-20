@@ -29,7 +29,8 @@ import { slideInAnimation } from './animations';
         NgOptimizedImage,
         MatProgressSpinnerModule,
         FooterComponent,
-        SidenavComponent],
+        SidenavComponent
+      ],
         animations: [
           slideInAnimation
         ]
@@ -38,7 +39,7 @@ import { slideInAnimation } from './animations';
 
 
 export class AppComponent  {
-  title = 'praxis-page';
+  title = 'Dr. Gottberg';
 
 }
 

@@ -1,7 +1,6 @@
 .footer {
   margin: 16px;
-  margin-left: 32px;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
 
@@ -10,12 +9,12 @@
 }
 
 #footer-menu {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    margin: auto;
     min-width: 180px;
     max-width: 280px;
-    background-color: rgb(255, 255, 255);
     padding: 6px 0;
+    text-align: center;
   }
   
   .menu-item {
@@ -30,10 +29,8 @@
     line-height: 36px;
     padding: 0 16px;
   
-    display: flex;
+    display: block;
     align-items: center;
-    flex-direction: row;
-    flex: 1;
   }
   
   .menu-item:hover {

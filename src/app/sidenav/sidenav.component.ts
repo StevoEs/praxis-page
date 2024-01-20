@@ -1,18 +1,18 @@
-import { Component, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { ChildrenOutletContexts, Router, RouterModule } from '@angular/router';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { NgOptimizedImage } from '@angular/common';
 
-
-import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { MatDrawer, MatDrawerMode, MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { ContentComponent } from '../content/sites/startseite/content.component';
+import { ContentComponent } from '../content/startseite/content.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { FooterComponent } from "../footer/footer.component";
+
 import { slideInAnimation } from '../animations';
 
 
@@ -40,19 +40,38 @@ import { slideInAnimation } from '../animations';
 })
 
 export class SidenavComponent implements AfterViewInit {
-@ViewChild(MatDrawer) drawer!: MatDrawer;
+  @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  isMobile = false;
-  currentBreakpoint: string = '';
+  isMobile: boolean = false;
+  isDesktop: boolean = false;
+  reason = '';
 
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+
+  toggle() {
+    this.sidenav.toggle();
+  }
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private cdr: ChangeDetectorRef,
-    private router: Router  // Router hinzufügen
-  ) { }
+    private contexts: ChildrenOutletContexts,
+    private renderer: Renderer2,
+    ) {}
 
+    getRouteAnimationData() {
+      return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
+    }
+  
   ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    
+  
+ 
     this.breakpointObserver.observe([
       Breakpoints.XLarge,
       Breakpoints.Large,
@@ -60,12 +79,15 @@ export class SidenavComponent implements AfterViewInit {
     ])
     .pipe()
     .subscribe(result => {
-      if (result.matches && this.drawer) {
+      if (result.matches && this.sidenav) {
+        this.isDesktop = true;
         this.isMobile = false;
-        this.drawer.open();
+        //this.sidenav.open();
         console.log("sidebar open");
       }
     });
+
+
 
     this.breakpointObserver.observe([
       Breakpoints.Small,
@@ -73,9 +95,10 @@ export class SidenavComponent implements AfterViewInit {
     ])
     .pipe()
     .subscribe(result => {
-      if (result.matches && this.drawer) {
+      if (result.matches && this.sidenav) {
         this.isMobile = true;
-        this.drawer.close();
+        this.isDesktop = false;
+        this.sidenav.close();
         console.log("sidebar close");
       }
     });
@@ -83,5 +106,9 @@ export class SidenavComponent implements AfterViewInit {
         
     this.cdr.detectChanges();
   }
+
 }
+
+
+
 

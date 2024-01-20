@@ -1,0 +1,36 @@
+<h1>Hepatitis</h1>
+
+<p class="description">Links zu Webseiten mit weiterführenden Informationen über die infektiöse Leberentzündung (Hepatitis), Typ C</p>
+
+<mat-table id="table-hepatitis" [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--class="mat-elevation-z8"-->
+        <!-- Name Column -->
+        <ng-container matColumnDef="adresse">
+            <mat-header-cell *matHeaderCellDef> Adresse </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <a [href]="element.adresse" target="_blank"> {{element.adresse}}</a> </mat-cell>
+          </ng-container>
+        
+          <!-- Adresse Column -->
+          <ng-container matColumnDef="anbieter">
+            <mat-header-cell *matHeaderCellDef> Anbieter </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.anbieter}} </mat-cell>
+          </ng-container>
+        
+          <mat-header-row id="table-hepatitis-head" *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row id="table-hepatitis-row" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+    </mat-table>
+
+    <p>
+        Eine Broschüre zum Thema Hepatitis können Sie auf der Homepage der 
+        <a href="http://www.bzga.de" target ="_blank">
+            Bundeszentrale für gesundheitliche Aufklärung
+        </a> 
+        bestellen oder im 
+        <a href="http://www.bzga.de/bzga_stat/pdf/60370000pdf" target ="_blank">
+            .pdf-Format (1.3 MB) herunterladen.
+        </a>
+    </p>
+
+    <go-footer></go-footer>

@@ -36,7 +36,7 @@ $praxis-page-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; box-sizing: border-box; }
 
 .description{
   background-color: #EEEEEE;
@@ -46,6 +46,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #F9DEED;
 }
 
+h1 {
+  margin: 0;
+  padding: 16px 0;
+}
+
 a {
   color: grey;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  visibility: visible;
+  background-color: transparent!important;
 }

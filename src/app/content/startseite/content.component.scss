@@ -1,0 +1,40 @@
+.table-wrapper {
+  max-width: 720px;
+}
+
+
+
+#table-time-head {
+  height: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  color: grey;
+}
+
+#prime-header {
+  text-align: center;
+}
+
+#table-time-row {
+  height: 26px;
+  font-size: 10px;
+  font-weight: 800;
+  color: grey;
+}
+
+
+
+
+.mdc-data-table__cell, .mdc-data-table__header-cell {
+    padding: 0;
+    text-align: center;
+    min-width: none;
+    text-justify: auto;
+  }
+
+
+
+
+.link-button {
+    margin: 5px 10px;
+  }

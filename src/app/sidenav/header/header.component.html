@@ -1,0 +1,11 @@
+<mat-toolbar class="toolbar" color="primary">
+  <div class="menu-button">
+      <button type="button" mat-button (click)="toggleDrawer()">
+          <mat-icon mat-icon id="burger">menu</mat-icon>
+      </button>
+      <span id="menu-text">Menü</span>
+  </div>
+  <div class="toolbar-heading" [ngClass]="{'isMobile-heading': isMobile}">
+      <span>Dr. med. Joachim Gottberg</span>
+  </div> 
+</mat-toolbar>

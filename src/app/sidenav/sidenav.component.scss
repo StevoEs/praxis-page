@@ -8,25 +8,77 @@
   right: 0;
 }
 
+// HEADING TOOLBAR
+
 .toolbar {
-    position: relative;
-    z-index: 2;
-    color: white;
-  }
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding-left: 0;
+}
 
 .toolbar-heading {
-  margin-left: 6px;
+margin-left: 6px;
+font-size: 1rem;
+text-align: center;
+}
+
+.menu-button-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  color: black;
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   font-size: 1rem;
-  text-align: center;
+  color: black;
+
+  user-select: none;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 8px;
+  margin-top: 8px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
 }
 
-.toolbar-heading.isMobile-heading {
-  margin-left: 6px;
-  font-size: 1.1rem;
+#burger {
+font-size: 2rem;
+height: 2rem;
+width: 2rem;
+} 
+
+#menu-text {
+color: white;
 }
 
-.drawer-container {
+.menu-item:hover {
+background-color: rgb(208, 208, 208);
+}
+
+.menu-item:active {
+background-color: rgb(170, 170, 170);
+} 
+
+.sidenav-container {
   height: 100vh;
+}
+
+.sidenav-container.isMobile-container {
+  padding-top: 0;
 }
 
 .side-drawer {
@@ -42,6 +94,8 @@
   
 .content { 
   width: 100%; 
+  padding: 0;
+  padding-top: 0;
   
   justify-content: center;
   align-items: center;
@@ -49,11 +103,12 @@
   font-size: 1rem;
   color: grey;
   
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 .content.isMobile-content {   
   margin: 0!important;
+  padding: 0 0!important;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
@@ -63,57 +118,19 @@
 }
 
 .content-wrapper {
-  max-width: 80%;
-  padding: 8px;
+  padding: 0 8px;
+  padding-right: 30%;
 }
 
 .content-wrapper.isMobile-wrapper {
   max-width: 100%;
+  padding-right: 8px;
 }
 
 
-  .menu-button {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      font-size: 1rem;
-      color: black;
-  
-      user-select: none;
-      min-width: 64px;
-      line-height: 36px;
-      padding: 0;
-  
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      flex: 1;
-  
-      background-color: transparent;
-      cursor: pointer;
-      border: none;
-  }
-
-  #burger {
-    font-size: 2rem;
-    height: 2rem;
-    width: 2rem;
-   } 
-  
-   #menu-text {
-    color: white;
-   }
-  
-  .menu-item:hover {
-    background-color: rgb(208, 208, 208);
-  }
-  
-  .menu-item:active {
-    background-color: rgb(170, 170, 170);
-  }
 
 .sidenav-image {
   display: block;
   margin: auto;
 }
+
